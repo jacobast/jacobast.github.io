@@ -1,1 +1,76 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacob - Portfolio</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Column -->
+        <div class="left-column">
+            <h1>Hi, I'm Jacob :)</h1>
+            <p>I'm an aspiring UI/UX designer passionate about creating digital experiences that are not just beautiful, but also accessible and intuitive for everyone.</p>
+            <p>Currently, in my final semester of studies at LTH, I bring a creative mindset shaped by years of photography, film and design projects in various student organisations. I believe great design should be inclusive - ensuring that every user, regardless of ability, feels at home.</p>
+            <p>Beyond designing, I spend most of my time at the gym, playing games with friends, or watching football. Also, if you need someone to trade Pokémon with or want to see pictures of my dog, Nuffe, I'm your guy.</p>
+
+            <!-- Buttons -->
+            <div class="buttons">
+                <a href="assets/pdfs/resume.pdf" class="btn" target="_blank">
+                    <i data-lucide="file-text"></i> Resume
+                </a>
+                <a class="btn" id="copy-mail">
+                    <i data-lucide="clipboard-copy"></i> Copy Email
+                </a>
+                <a href="https://www.linkedin.com/in/jacobastrand/" class="btn" target="_blank">
+                    <i data-lucide="linkedin"></i> LinkedIn
+                </a>
+            </div>
+            <p id="confirmation-message" style="display: none; text-align: center; color: #0073e6;">Email copied to your clipboard.</p>
+        </div>
+
+        <!-- Right Column -->
+        <div class="right-column">
+            <h2>My Projects</h2>
+            
+            <a href="projects/arkad.html" class="project" style="background: #041224;">
+                <div class="project-text">
+                    <img src="assets/images/logos/logo_arkad.svg" alt="ARKAD Logo">
+                    <h3>UI/UX designer</h3>
+                    <p>Redesign of mobile app from user feedback</p> 
+                </div>
+                <span class="read-more" style="background: #19A1DB; color: #041224;">Read More</span>
+            </a>
+
+            <a href="projects/labb.html" class="project" style="background: #0C3033;">
+                <div class="project-text">
+                    <img src="assets/images/logos/logo_labb.svg" alt="LABB Logo">
+                    <h3>UI/UX designer</h3>
+                    <p>Usability evaluation and redesign of both mobile and desktop view</p> 
+                </div>
+                <span class="read-more" style="background: #9EDE72; color: #0C3033;">Read More</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Lucide Icons Script -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        // Initialize Lucide icons 
+        lucide.createIcons();
+
+        // Copy email function
+        document.getElementById("copy-mail").addEventListener("click", function() {
+            const email = "astrand.jacob@gmail.com"
+            navigator.clipboard.writeText(email).then(() => {
+                const message = document.getElementById("confirmation-message");
+                message.style.display="block";
+                setTimeout(() => message.style.display = "none", 2000); 
+            }).catch(err => {
+                console.error("Failed to copy: ", err);
+            });
+        });
+    </script>
+</body>
+</html>
